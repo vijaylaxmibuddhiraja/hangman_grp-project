@@ -1,4 +1,3 @@
-import { Component } from "react";
 import './css/hangman.css'
 
 // 1. A welcome message will be shown were the player can write his/her name
@@ -13,4 +12,22 @@ import './css/hangman.css'
 // 10. If the user misses 6 times to find the right letters the game is over and a message will displayed that you lose the game and the user can see the score
 // 11. User can start a new game
 
+import React, { useState } from 'react';
 
+const WelcomeMessage = () => {
+  const [name, setName] = useState('');
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
+    return (
+         <>
+        <h1>Wecome to Hangman</h1>
+        <input type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={handleChange}
+              />
+              </>);
+};
+export default WelcomeMessage;
