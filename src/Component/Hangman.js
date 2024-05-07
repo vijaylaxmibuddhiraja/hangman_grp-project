@@ -12,5 +12,5 @@ import './css/hangman.css'
 // 9. If the user guessed all right words, the player will be announced as winner and a winning message will appear
 // 10. If the user misses 6 times to find the right letters the game is over and a message will displayed that you lose the game and the user can see the score
 // 11. User can start a new game
-// 12. Html and css
+
 
