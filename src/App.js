@@ -1,12 +1,13 @@
 
 import './arbresha';
+import './Component/css/hangman.css'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, Welcome to my first project</h1>
-
+    <div >
+      <h1>Wecome to Hangman</h1>
       
+     
     </div>
   );
 }
