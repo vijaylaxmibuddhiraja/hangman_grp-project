@@ -67,7 +67,9 @@ class Hangman extends Component {
  }
   // This is an error counter, we start with 0 Error and we will cound how many times the user select a wrong letter
   render() { 
-    const {nWrong} = this.state
+    const {maxWrong} = this.props 
+    const {nWrong, answer} = this.state
+    let gameOver = nWrong >= maxWrong
     return (
       <div className="Hangman">
         <h1>Welcome to the Hangman Game</h1>
