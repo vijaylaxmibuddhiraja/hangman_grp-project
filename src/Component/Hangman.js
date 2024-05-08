@@ -40,6 +40,14 @@ class Hangman extends Component {
   }
 
   state = { nWrong: 0 } 
+  generateButtons = () => {
+    return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
+      // Split the string into letters and then we gonne add this letter to buttoms
+      <button key={ltr}>
+        {ltr}
+      </button>
+    ))
+ }
   // This is an error counter, we start with 0 Error and we will cound how many times the user select a wrong letter
   render() { 
     const {nWrong} = this.state
@@ -48,6 +56,7 @@ class Hangman extends Component {
         <h1>Welcome to the Hangman Game</h1>
         <p>Wrong Guesses: {nWrong}</p>
         {/* This shows us the number of wrong guesses */}
+        <div className= "btns">{this.generateButtons()}</div>
       </div>
     );
   }
