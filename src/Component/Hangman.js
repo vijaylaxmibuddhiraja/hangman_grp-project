@@ -60,7 +60,7 @@ class Hangman extends Component {
       <div className="Hangman">
         <h1>Welcome to the Hangman Game</h1>
         <p>Wrong Guesses: {nWrong}</p>
-        <p></p>
+        <p className="Hangman-word">{this.guessedword()}</p>
         {/* This shows us the number of wrong guesses */}
         <div className= "btns">{this.generateButtons()}</div>
       </div>
