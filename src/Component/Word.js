@@ -1,16 +1,16 @@
 let Technology = [
-    "Javascript",
-    "Python",
-    "Agile" ,
-    "Linux" , 
-    "Windows",
-    "Android" ,
-    "Firewall",
-    "Pascal",
-    "Java",
+    "javascript",
+    "python",
+    "agile" ,
+    "linux" , 
+    "windows",
+    "android" ,
+    "firewall",
+    "pascal",
+    "java",
     "html",
-    "CSharp",
-    "Ruby",];
+    "csharp",
+    "ruby",];
     
     function randomWord(){
         return Technology[Math.floor(Math.random()*Technology.length)]
