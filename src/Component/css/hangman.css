@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Coming+Soon");
 body{
-    background: #002851;
-    color: #fefeff;
+    background: #ab8db8;
+    color: #5d0877;
     margin: auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     text-align: center;
+  }
 
 .btns {
   text-align: center;
@@ -22,7 +26,7 @@ body{
   margin: 5px 2px;
   letter-spacing: 1px;
   outline: none;
-  background: #a505d6;
+  background: #5d0877;
   color: #fff;
   
   border-radius: 5px;
@@ -30,7 +34,7 @@ body{
 }
 
 .Hangman button:hover {
-  background-color: #681481;
+  background-color: #a505d6 ;
 }
 
 .Hangman button:disabled {
