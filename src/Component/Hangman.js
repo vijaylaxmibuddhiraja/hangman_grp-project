@@ -40,15 +40,24 @@ class Hangman extends Component {
     maxWrong: 6
   }
 
-  state = { nWrong: 0, answer: randomWord() } 
+  state = { nWrong: 0, answer: randomWord(), guessed: new Set() } 
 
   guessedWord = () =>{
     return this.state.answer.split('').map(ltr => ltr)
   }
+  handleGuess = (e)=>{
+    let ltr = e.target.value
+    this.setState(ps=> ({
+      guessed: ps.guessed.add(ltr)
+    }))
+    // This make sure that when we pick a letter the button of that letter will be disable
+  }
   generateButtons = () => {
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
       // Split the string into letters and then we gonne add this letter to buttoms
-      <button key={ltr}>
+      <button key={ltr}
+      value={ltr}
+      onClick={this.handleGuess}>
         {ltr}
       </button>
     ))
