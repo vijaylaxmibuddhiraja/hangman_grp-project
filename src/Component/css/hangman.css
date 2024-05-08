@@ -3,7 +3,7 @@
 body {
   background: #ab8db8;
   color: #5d0877;
-  margin: auto;
+  margin: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
@@ -12,9 +12,10 @@ body {
 }
 
 .Hangman {
-  width: 400px;
-  text-align: center;
+  width: 80%;
+  /* text-align: center; */
   margin: 0 auto;
+  min-height: 80vh;
 }
 
 .Hangman-word {

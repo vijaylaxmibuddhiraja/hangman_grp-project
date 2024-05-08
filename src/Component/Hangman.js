@@ -40,10 +40,10 @@ class Hangman extends Component {
     maxWrong: 6
   }
 
-  state = { nWrong: 0, anser: randomWord() } 
+  state = { nWrong: 0, answer: randomWord() } 
 
-  guessedword = () =>{
-    return this.state.amswer.split('').map(ltr => ltr)
+  guessedWord = () =>{
+    return this.state.answer.split('').map(ltr => ltr)
   }
   generateButtons = () => {
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
@@ -60,9 +60,9 @@ class Hangman extends Component {
       <div className="Hangman">
         <h1>Welcome to the Hangman Game</h1>
         <p>Wrong Guesses: {nWrong}</p>
-        <p className="Hangman-word">{this.guessedword()}</p>
+        <p className="Hangman-word">{this.guessedWord()}</p>
         {/* This shows us the number of wrong guesses */}
-        <div className= "btns">{this.generateButtons()}</div>
+        <div className="btns">{this.generateButtons()}</div>
       </div>
     );
   }
