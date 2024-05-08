@@ -1,4 +1,5 @@
 import './css/hangman.css'
+import { Component } from 'react';
 
 // 1. A welcome message will be shown were the player can write his/her name
 // 2. The player can choose the categories ( Technology, Occupation/Jobs, Sports). 
@@ -12,22 +13,45 @@ import './css/hangman.css'
 // 10. If the user misses 6 times to find the right letters the game is over and a message will displayed that you lose the game and the user can see the score
 // 11. User can start a new game
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-const WelcomeMessage = () => {
-  const [name, setName] = useState('');
+// const WelcomeMessage = () => {
+//   const [name, setName] = useState('');
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
+//   const handleChange = (e) => {
+//     setName(e.target.value);
+//   };
+//     return (
+//          <>
+//         <h1>Wecome to Hangman</h1>
+//         <input type="text"
+//                 placeholder="Enter your name"
+//                 value={name}
+//                 onChange={handleChange}
+//               />
+//               </>);
+// };
+// export default WelcomeMessage;
+
+
+class Hangman extends Component {
+  static defaultProps = {
+    maxWrong: 6
+  }
+
+  state = { nWrong: 0 } 
+  // This is an error counter, we start with 0 Error and we will cound how many times the user select a wrong letter
+  render() { 
+    const {nWrong} = this.state
     return (
-         <>
-        <h1>Wecome to Hangman</h1>
-        <input type="text"
-                placeholder="Enter your name"
-                value={name}
-                onChange={handleChange}
-              />
-              </>);
-};
-export default WelcomeMessage;
+      <div className="Hangman">
+        <h1>Welcome to the Hangman Game</h1>
+        <p>Wrong Guesses: {nWrong}</p>
+        {/* This shows us the number of wrong guesses */}
+      </div>
+    );
+  }
+}
+export default Hangman;
+ 
+
