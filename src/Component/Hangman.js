@@ -1,5 +1,6 @@
 import './css/hangman.css'
 import { Component } from 'react';
+import { randomWord } from './Word';
 
 // 1. A welcome message will be shown were the player can write his/her name
 // 2. The player can choose the categories ( Technology, Occupation/Jobs, Sports). 
@@ -39,7 +40,11 @@ class Hangman extends Component {
     maxWrong: 6
   }
 
-  state = { nWrong: 0 } 
+  state = { nWrong: 0, anser: randomWord() } 
+
+  guessedword = () =>{
+    return this.state.amswer.split('').map(ltr => ltr)
+  }
   generateButtons = () => {
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
       // Split the string into letters and then we gonne add this letter to buttoms
@@ -55,6 +60,7 @@ class Hangman extends Component {
       <div className="Hangman">
         <h1>Welcome to the Hangman Game</h1>
         <p>Wrong Guesses: {nWrong}</p>
+        <p></p>
         {/* This shows us the number of wrong guesses */}
         <div className= "btns">{this.generateButtons()}</div>
       </div>
