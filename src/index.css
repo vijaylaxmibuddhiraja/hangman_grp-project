@@ -1,19 +1,77 @@
-* {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Coming+Soon");
+
+body {
+  background: #002851;
+  color: #fefeff;
+  margin-left: 20%;
+  font-family: "Coming Soon", cursive;
 }
 
-body, #root {
-  background-color: #34495e;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+.Hangman {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.Hangman-flex {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  height: 80vh;
-  margin: 0;
-  overflow: hidden;
+  justify-content: space-between;
+  min-height: inherit;
 }
 
-h1 {
-  margin: 20px 0 0;
+.Hangman-flex div {
+  text-align: center;
+}
+
+.WelcomeMessage {
+  text-align:center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.WelcomeMessage h1 {
+  font-size: 2rem;
+  color: #fefeff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.WelcomeMessage p {
+  font-size: 1.2rem;
+  color: #fefeff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.PlayerName {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.PlayerName input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  font-family: "Coming Soon", cursive;
+  background-color: #fefeff;
+  color: #002851;
+}
+
+.PlayerName button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 6px #0097a7;
+  font-family: "Coming Soon", cursive;
+}
+
+.PlayerName button:hover {
+  background-color: #0097a7;
 }
