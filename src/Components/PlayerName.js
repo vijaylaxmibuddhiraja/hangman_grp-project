@@ -1,7 +1,7 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 const PlayerName = ({ onSubmitName }) => {
-    const [playerName, setPlayerName] = useState('');
+    const [name, setName] = useState('');
 
     const handleNameChange = (event) => {
         setPlayerName(event.target.value);
@@ -9,17 +9,21 @@ const PlayerName = ({ onSubmitName }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmitName(playerName);
+        console.log('name:, ');
+        onSubmitName(name);
+        setName('');
     };
 
     return (
-        <>
-          <h2>Enter your name</h2>
+        <div className="player-name">
             <form onSubmit={handleSubmit}>
-                <input type="text" value={playerName} onChange={handleNameChange} placeholder="Enter your name"/>
+             <input type="text" value={name} 
+                    onChange={(event) => setName(event.target.value)}
+                    placeholder="Enter your name"
+                />    
                 <button type="submit">Start Game</button>       
             </form>
-        </>
+        </div>
     );
 
 };

@@ -21,7 +21,9 @@ const HangmanFx = () => {
           {gameState === 'welcome' && (
             <>
                <WelcomeMessage/> 
+             
                <button onClick={startGame}>Enter name</button>
+            
             </>   
                )}
            {gameState === 'playerName' && (
