@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Coming+Soon");
+
 
 body {
-  background: #002851;
+  background: rgb(28, 86, 53);
   color: #fefeff;
-  margin-left: 20%;
-  font-family: "Coming Soon", cursive;
+  margin-left: 30%;
 }
 
 .Hangman {
@@ -28,19 +27,21 @@ body {
 .WelcomeMessage {
   text-align:center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .WelcomeMessage h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #fefeff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .WelcomeMessage p {
-  font-size: 1.2rem;
+  font-size:2rem;
   color: #fefeff;
   font-family: Arial, Helvetica, sans-serif;
+  margin-left: 32%;
+
 }
 
 .PlayerName {

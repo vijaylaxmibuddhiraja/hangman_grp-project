@@ -1,11 +1,11 @@
 import React from "react";
 
-WelcomeMessage =() => {
+const WelcomeMessage =() => {
     return (
         <div>
             <h1>Welocme to Hangman</h1>
             <p>Guess the Hidden Word!</p>
-            <WelcomeMessage />
+            
         </div>
     );
 };

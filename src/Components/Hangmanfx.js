@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
-import WelcomeMessage from "./Welcome";
+import Welcome from "./Welcome";
 import PlayerName from './PlayerName';
 
-import "./index.css";
+
 
 
 const HangmanFx = () => {
     
     const [playerName, setPlayerName] = useState('');
-}
-return (
-    <div className="Hangman">
-       
-        {!PlayerName && <PlayerName onSubmitName={handlePlayerNameSubmit} />}
+    
+    const handlePlayerNameSubmit = (name) => {
+        setPlayerName(name);
+    }
+    
+    return (
+       <div className="Hangman">
+           <Welcome />
+           {!PlayerName && <PlayerName onSubmitName={handlePlayerNameSubmit} />}
         
       
-    </div>  
-);
+       </div>  
+    );
+};
+ 
 
 export default HangmanFx;
 
