@@ -110,8 +110,8 @@ class Hangman extends Component {
         <button id="reset" onClick={this.reset}>Restart?</button>
           <form>
             <label htmlFor="group">Guess About: </label>
-            <select name="group" id="group" onChange={this.handleChange}>
-              <option value="Technology" selected={group === 'Technology' ? true : false}>Technology</option>
+            <select name="group" id="group" value={group} onChange={this.handleChange}>
+              <option value="Technology" >Technology</option>
               <option value="Jobs">Jobs</option>
               <option value="Brands">Brands</option>
             </select>
