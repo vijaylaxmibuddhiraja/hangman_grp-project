@@ -68,3 +68,7 @@ body {
 #reset:hover {
   background: #a505d6;
 }
+.Hangman img{
+  max-width: 200px;
+  max-height: auto;
+}

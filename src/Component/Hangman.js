@@ -1,6 +1,16 @@
 import './css/hangman.css'
 import { Component } from 'react';
 import { randomWord } from './Word';
+import img0 from './images/img0.png'
+import img1 from './images/img1.png'
+import img2 from './images/img2.png'
+import img3 from './images/img3.png'
+import img4 from './images/img4.png'
+import img5 from './images/img5.png'
+import img6 from './images/img6.png'
+
+
+
 
 // 1. A welcome message will be shown were the player can write his/her name
 // 2. The player can choose the categories ( Technology, Occupation/Jobs, Sports). 
@@ -37,7 +47,8 @@ import { randomWord } from './Word';
 
 class Hangman extends Component {
   static defaultProps = {
-    maxWrong: 6
+    maxWrong: 6,
+    images: [img0,img1,img2,img3,img4,img5,img6]
   }
 
   state = { nWrong: 0, answer: randomWord(), guessed: new Set() } 
@@ -75,8 +86,9 @@ class Hangman extends Component {
  }
   // This is an error counter, we start with 0 Error and we will cound how many times the user select a wrong letter
   render() { 
-    const {maxWrong} = this.props 
+    const {maxWrong, images} = this.props 
     const {nWrong, answer} = this.state
+    let alt = '${nWrong}/${maxWrong} guesses';
     let isWinner = this.guessedWord().join("") === answer
     // in case we pick the right letter we win the game
     let gameOver = nWrong >= maxWrong
@@ -87,6 +99,7 @@ class Hangman extends Component {
     return (
       <div className="Hangman">
         <h1>Welcome to the Hangman Game</h1>
+        <img src={images[nWrong]} alt={alt} />
         <p>Wrong Guesses: {nWrong}</p>
         <p className="Hangman-word">
           {gameOver ? answer : this.guessedWord()}</p>
