@@ -48,25 +48,25 @@ import img6 from './images/img6.png'
 class Hangman extends Component {
   static defaultProps = {
     maxWrong: 6,
-    images: [img0,img1,img2,img3,img4,img5,img6]
+    images: [img0, img1, img2, img3, img4, img5, img6]
   }
 
-  state = { nWrong: 0, answer: randomWord(), guessed: new Set() } 
+  state = { nWrong: 0, answer: randomWord(), guessed: new Set() }
 
   reset = () => {
     this.setState({
-      nWrong:0,
+      nWrong: 0,
       guessed: new Set(),
       answer: randomWord()
     })
   }
 
-  guessedWord = () =>{
+  guessedWord = () => {
     return this.state.answer.split('').map(ltr => (this.state.guessed.has(ltr) ? ltr : "_"))
   }
-  handleGuess = (e)=>{
+  handleGuess = (e) => {
     let ltr = e.target.value
-    this.setState(ps=> ({
+    this.setState(ps => ({
       guessed: ps.guessed.add(ltr),
       nWrong: ps.nWrong + (ps.answer.includes(ltr) ? 0 : 1)
     }))
@@ -75,42 +75,50 @@ class Hangman extends Component {
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
       // Split the string into letters and then we gonne add this letter to buttoms
       <button key={ltr}
-      value={ltr}
-      onClick={this.handleGuess}
-      disabled={this.state.guessed.has(ltr)}>
-      {/* This make sure that when we pick a right letter the button of that letter will be disable */}
-  
+        value={ltr}
+        onClick={this.handleGuess}
+        disabled={this.state.guessed.has(ltr)}>
+        {/* This make sure that when we pick a right letter the button of that letter will be disable */}
+
         {ltr}
       </button>
     ))
- }
+  }
   // This is an error counter, we start with 0 Error and we will cound how many times the user select a wrong letter
-  render() { 
-    const {maxWrong, images} = this.props 
-    const {nWrong, answer} = this.state
-    let alt = '${nWrong}/${maxWrong} guesses';
+  render() {
+    const { maxWrong, images } = this.props
+    const { nWrong, answer } = this.state
+    // let alt = '${nWrong}/${maxWrong} guesses';
     let isWinner = this.guessedWord().join("") === answer
     // in case we pick the right letter we win the game
     let gameOver = nWrong >= maxWrong
     // in case we make more guesses that maxWrong=6 we lose the game  
     let gameState = this.generateButtons()
-    if(isWinner) gameState = 'You Won!'
-    if(gameOver) gameState = 'You Lost!'
+    if (isWinner) gameState = 'You Won!'
+    if (gameOver) gameState = 'You Lost!'
     return (
       <div className="Hangman">
-        <h1>Welcome to the Hangman Game</h1>
-        <img src={images[nWrong]} alt={alt} />
+        <h1 className='Hangman-title'>Welcome to the Hangman Game</h1>
+        <div className="Hangman-flex"></div>
+        <div className="Hangman-counter"></div>
+        <div></div>
+        <div className="Hangman-reset">
+          
+
+        </div>
+        <img src={images[nWrong]} alt={"Hangman img"} />
+        {/* if a problem with images show this message */}
         <p>Wrong Guesses: {nWrong}</p>
         <p className="Hangman-word">
           {gameOver ? answer : this.guessedWord()}</p>
         {/* This shows us the number of wrong guesses */}
         <div className="btns">{gameState}</div>
         <button id="reset" onClick={this.reset}>Restart?</button>
-      
+
       </div>
     );
   }
 }
 export default Hangman;
- 
+
 
