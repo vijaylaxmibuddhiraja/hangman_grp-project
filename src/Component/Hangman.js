@@ -37,7 +37,8 @@ class Hangman extends Component {
     this.setState({
       nWrong: 0,
       guessed: new Set(),
-      answer: randomWord()
+      answer: randomWord(),
+      group: 'Technology'
     })
   }
 
@@ -68,12 +69,17 @@ class Hangman extends Component {
   handleChange = (e) =>{
     const {value, name} = e.target
     this.setState({
-      [name]:value
+      [name]:value,
+      answer: randomWord(value),
+      // allows us to set properties names dynamically
+      nWrong: 0,
+      guessed: new Set()
+      //if we change the categories the game will restart- an new set will be triggert
     })
   }
   render() {
     const { maxWrong, images } = this.props
-    const { nWrong, answer } = this.state
+    const { nWrong, answer, group } = this.state
     // let alt = '${nWrong}/${maxWrong} guesses';
     let isWinner = this.guessedWord().join("") === answer
     // in case we pick the right letter we win the game
@@ -84,7 +90,8 @@ class Hangman extends Component {
     if (gameOver) gameState = 'You Lost!'
     return (
       <div className="Hangman">
-        <h1 className='Hangman-title'>Welcome to the Hangman Game</h1>
+        <h1 className='Hangman-title'>Welcome to the Hangman Game.</h1>
+        <h2> Category: {group}</h2>
         <div className="Hangman-flex">
         <div className="Hangman-counter">
         <img src={images[nWrong]} alt={"Hangman img"} />
@@ -104,9 +111,9 @@ class Hangman extends Component {
           <form>
             <label htmlFor="group">Guess About: </label>
             <select name="group" id="group" onChange={this.handleChange}>
-              <option value="colors">Jobs</option>
-              <option value="countries">Countries</option>
-              <option value="animals">Brands</option>
+              <option value="Technology">Technology</option>
+              <option value="Jobs">Jobs</option>
+              <option value="Brands">Brands</option>
             </select>
           </form>
 
