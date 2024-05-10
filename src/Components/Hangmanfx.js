@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
-import Welcome from "./Welcome";
+import WelcomeMessage from './Welcome';
 import PlayerName from './PlayerName';
 
 
-
-
 const HangmanFx = () => {
-    
+    const [gameState, setGameState] = useState ('welcome');
     const [playerName, setPlayerName] = useState('');
     
-    const handlePlayerNameSubmit = (name) => {
+    const handleNameSubmit = (name) => {
         setPlayerName(name);
-    }
+        setGameState('game');
+    };
     
     return (
        <div className="Hangman">
-           <Welcome />
-           {!PlayerName && <PlayerName onSubmitName={handlePlayerNameSubmit} />}
-        
+          {gameState === 'welcome' &&  <WelcomeMessage/> }
+           {gameState === 'playerName' && (
+                <PlayerName onSubmitName={handleNameSubmit} />
+                )};
+                {gameState === 'game' && (
+                    <>
+                        {/* Display player name*/}
+                        <h1>Welcome, {playerName}!</h1>
+                    </>
+                )};
+           </div> 
       
-       </div>  
     );
 };
  
