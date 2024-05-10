@@ -111,7 +111,7 @@ class Hangman extends Component {
           <form>
             <label htmlFor="group">Guess About: </label>
             <select name="group" id="group" onChange={this.handleChange}>
-              <option value="Technology">Technology</option>
+              <option value="Technology" selected={group === 'Technology' ? true : false}>Technology</option>
               <option value="Jobs">Jobs</option>
               <option value="Brands">Brands</option>
             </select>
