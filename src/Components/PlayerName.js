@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 
+
 const PlayerName = ({ onSubmitName }) => {
     const [name, setName] = useState('');
 
-    const handleNameChange = (event) => {
-        setPlayerName(event.target.value);
-    };
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('name:, ');
-        onSubmitName(name);
+        console.log('Player name:', name);
+        onSubmitName(name); // to call popup function with player's name
         setName('');
     };
 

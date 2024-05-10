@@ -1,7 +1,7 @@
 import React from "react";
-import PlayerName from "./PlayerName";
 
-const GamePopup = ({ PlayerName, onStartGame}) => {
+
+const GamePopup = ({ playerName, onStartGame}) => {
     return (
         <div className="game-popup">
             <div className="popup-content">
