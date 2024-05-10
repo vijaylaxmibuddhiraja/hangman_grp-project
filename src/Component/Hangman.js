@@ -24,26 +24,6 @@ import img6 from './images/img6.png'
 // 10. If the user misses 6 times to find the right letters the game is over and a message will displayed that you lose the game and the user can see the score
 // 11. User can start a new game
 
-// import React, { useState } from 'react';
-
-// const WelcomeMessage = () => {
-//   const [name, setName] = useState('');
-
-//   const handleChange = (e) => {
-//     setName(e.target.value);
-//   };
-//     return (
-//          <>
-//         <h1>Wecome to Hangman</h1>
-//         <input type="text"
-//                 placeholder="Enter your name"
-//                 value={name}
-//                 onChange={handleChange}
-//               />
-//               </>);
-// };
-// export default WelcomeMessage;
-
 
 class Hangman extends Component {
   static defaultProps = {
@@ -105,7 +85,7 @@ class Hangman extends Component {
     return (
       <div className="Hangman">
         <h1 className='Hangman-title'>Welcome to the Hangman Game</h1>
-        <div className="Hangman-flex"></div>
+        <div className="Hangman-flex">
         <div className="Hangman-counter">
         <img src={images[nWrong]} alt={"Hangman img"} />
         {/* if a problem with images show this message */}
@@ -131,12 +111,13 @@ class Hangman extends Component {
           </form>
 
         </div>
+        
        
         
        
         
 
-      </div>
+      </div> </div>
     );
   }
 }
