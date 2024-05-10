@@ -100,20 +100,35 @@ class Hangman extends Component {
       <div className="Hangman">
         <h1 className='Hangman-title'>Welcome to the Hangman Game</h1>
         <div className="Hangman-flex"></div>
-        <div className="Hangman-counter"></div>
-        <div></div>
-        <div className="Hangman-reset">
-          
-
-        </div>
+        <div className="Hangman-counter">
         <img src={images[nWrong]} alt={"Hangman img"} />
         {/* if a problem with images show this message */}
         <p>Wrong Guesses: {nWrong}</p>
+        </div>
+        <div>
         <p className="Hangman-word">
           {gameOver ? answer : this.guessedWord()}</p>
         {/* This shows us the number of wrong guesses */}
+        
         <div className="btns">{gameState}</div>
+        </div>
+
+        <div className="Hangman-reset">
         <button id="reset" onClick={this.reset}>Restart?</button>
+          <form>
+            <label htmlFor="group">Guess About: </label>
+            <select name="group" id="group" value={group} onChange={this.handleChange}>
+              <option value="colors">Jobs</option>
+              <option value="countries">Countries</option>
+              <option value="animals">Brands</option>
+            </select>
+          </form>
+
+        </div>
+       
+        
+       
+        
 
       </div>
     );

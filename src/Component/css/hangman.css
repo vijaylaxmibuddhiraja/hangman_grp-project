@@ -17,6 +17,32 @@ body {
   margin: 0 auto;
   min-height: 80vh;
 }
+.Hangman-flex{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+   min-height: inherit;
+}
+
+.Hangman-flex div{
+  text-align: center;
+}
+
+.Hangman-reset{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 50%;
+}
+
+.Hangman-reset select{
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.55em 0.7em;
+  font-family: "Coming Soon", cursive;
+}
+
 
 .Hangman-word {
   letter-spacing: 1em;
