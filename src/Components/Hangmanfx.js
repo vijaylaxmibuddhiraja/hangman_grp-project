@@ -11,19 +11,29 @@ const HangmanFx = () => {
         setPlayerName(name);
         setGameState('game');
     };
+
+    const startGame = () => {
+        setGameState('playerName'); // Transition from Welcome to playerName state
+    };
     
     return (
        <div className="Hangman">
-          {gameState === 'welcome' &&  <WelcomeMessage/> }
+          {gameState === 'welcome' && (
+            <>
+               <WelcomeMessage/> 
+               <button onClick={startGame}>Enter name</button>
+            </>   
+               )}
            {gameState === 'playerName' && (
                 <PlayerName onSubmitName={handleNameSubmit} />
-                )};
+                )}
                 {gameState === 'game' && (
                     <>
                         {/* Display player name*/}
                         <h1>Welcome, {playerName}!</h1>
+                        <p>Let's Start</p>
                     </>
-                )};
+                )}
            </div> 
       
     );
