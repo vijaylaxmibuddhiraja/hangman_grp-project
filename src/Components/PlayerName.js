@@ -7,7 +7,7 @@ const PlayerName = ({ onSubmitName }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('Player name:', name);
-        onSubmitName(name); // to call popup function with player's name
+        onSubmitName(name); // to call onSubmitName function with player's name
         setName('');
     };
 
