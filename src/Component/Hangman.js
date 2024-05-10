@@ -51,7 +51,7 @@ class Hangman extends Component {
     images: [img0, img1, img2, img3, img4, img5, img6]
   }
 
-  state = { nWrong: 0, answer: randomWord(), guessed: new Set() }
+  state = { nWrong: 0, answer: randomWord(), guessed: new Set(), group:'Technology'}
 
   reset = () => {
     this.setState({
@@ -85,6 +85,12 @@ class Hangman extends Component {
     ))
   }
   // This is an error counter, we start with 0 Error and we will cound how many times the user select a wrong letter
+  handleChange = (e) =>{
+    const {value, name} = e.target
+    this.setState({
+      [name]:value
+    })
+  }
   render() {
     const { maxWrong, images } = this.props
     const { nWrong, answer } = this.state
@@ -117,7 +123,7 @@ class Hangman extends Component {
         <button id="reset" onClick={this.reset}>Restart?</button>
           <form>
             <label htmlFor="group">Guess About: </label>
-            <select name="group" id="group" value={group} onChange={this.handleChange}>
+            <select name="group" id="group" onChange={this.handleChange}>
               <option value="colors">Jobs</option>
               <option value="countries">Countries</option>
               <option value="animals">Brands</option>
