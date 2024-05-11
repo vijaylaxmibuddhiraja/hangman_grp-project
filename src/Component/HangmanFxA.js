@@ -18,11 +18,21 @@ const HangmanFxA = () => {
   const [answer, setAnswer] = useState(randomWord())
 
   const guessedWord =()=>{
-    return this.state.answer.split('').map(ltr => (this.state.guessed.has(ltr) ? ltr : "_"))
+    return this.answer.split('').map(ltr => (guessed.has(ltr) ? ltr : "_"))
   }
+ 
+ const handleGuess =(e)=>{
+  let ltr = e.target.value
+  const updatedSet = new Set([...guessed, ltr])
+  setGuessed(updatedSet)
+ }
   const generateButtons =()=>{
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
-      <button key={ltr}>{ltr}</button>
+      <button key={ltr}
+      value={ltr}
+      onClick={handleGuess}>
+
+        {ltr}</button>
     ))
   }
   
@@ -38,7 +48,7 @@ const HangmanFxA = () => {
           <p>Wrong Guesses: </p>
         </div>
         <div>
-          <p className="Hangman-word">
+          <p className="Hangman-word">{guessedWord()}
             {/* {gameOver ? answer : this.guessedWord()} */}
             </p>
           {/* This shows us the number of wrong guesses */}
