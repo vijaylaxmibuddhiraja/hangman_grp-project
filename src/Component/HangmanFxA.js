@@ -39,11 +39,11 @@ const HangmanFxA = () => {
     ))
   }
   let alt = '${nWrong}/${maxWrong} guesses';
-  let isWinner = this.guessedWord().join("") === answer
+  let isWinner = guessedWord().join("") === answer
     // in case we pick the right letter we win the game
     let gameOver = nWrong >= maxWrong
     // in case we make more guesses that maxWrong=6 we lose the game  
-    let gameState = this.generateButtons()
+    let gameState = generateButtons()
     if (isWinner) gameState = 'You Won!'
     if (gameOver) gameState = 'You Lost!'
   return (
@@ -58,12 +58,12 @@ const HangmanFxA = () => {
           <p>Wrong Guesses: </p>
         </div>
         <div>
-          <p className="Hangman-word">{guessedWord()}
+          <p className="Hangman-word">{gameOver ? answer : guessedWord()}
             {/* {gameOver ? answer : this.guessedWord()} */}
             </p>
           {/* This shows us the number of wrong guesses */}
 
-          <div className="btns">{generateButtons()}</div>
+          <div className="btns">{gameState}</div>
         </div>
 
         <div className="Hangman-reset">
