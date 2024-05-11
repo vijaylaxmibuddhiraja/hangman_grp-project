@@ -9,6 +9,7 @@ const HangmanFx = () => {
     const [playerName, setPlayerName] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const [score] = useState(0);
+   
     const [gameStarted, setGameStarted] = useState(false);  // to disappaer the player input field after clicking the start game button
 
 
