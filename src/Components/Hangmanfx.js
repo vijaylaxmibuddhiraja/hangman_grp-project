@@ -9,7 +9,9 @@ const HangmanFx = () => {
     const [playerName, setPlayerName] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const [score] = useState(0);
-    
+    const [gameStarted, setGameStarted] = useState(false);  // to disappaer the player input field after clicking the start game button
+
+
     const handleNameSubmit = (name) => {
         console.log('Submitted name:', name)
         setPlayerName(name);
@@ -17,9 +19,10 @@ const HangmanFx = () => {
     };
 
     const handlestartGame = () => {
-        console.log('click start game')
+        console.log('start game is clicked')
         setGameState('game'); // Transition from Welcome to playerName state
         setShowPopup(false); // hide the popup
+        setGameStarted(true); 
     };
 
     const handleShowPopup = (name) => {
@@ -31,7 +34,7 @@ const HangmanFx = () => {
     return (
        <div className="Hangman">
         <Header />
-          {gameState === 'welcome' && (
+          {!gameStarted && gameState === 'welcome' && (   // Player name render only when the game isn't start
             <PlayerName onSubmitName={handleShowPopup} />
           )}
           {showPopup && <GamePopup playerName={playerName} onStartGame={handlestartGame} />}   
