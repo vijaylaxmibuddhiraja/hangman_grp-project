@@ -33,3 +33,28 @@ let SPORTS = [
     
 ]
 
+let BRANDS = [
+    'Addidas',
+    'Gucci',
+    'Prada',
+    'Puma',
+    'Nike',
+    'Samsung',
+    'Apple',
+]
+
+    function randomWord (type=TECHNOLOGY) {
+        switch (type) {
+            case 'occupation':
+                return OCCUPATION[Math.floor(Math.random() *OCCUPATION.length)];
+            
+              
+            case 'sports':
+                return SPORTS[Math.floor(Math.random() * SPORTS.length)];
+            
+            case 'brands':
+            default:
+                return BRANDS[Math.floor(Math.random() * BRANDS.length)];
+        }
+    }
+    export { randoWord };
