@@ -1,16 +1,15 @@
+import Hangmanfx from "./Components/Hangmanfx";
 
-import './arbresha';
-import './Component/css/hangman.css'
-import Hangman from './Component/Hangman';
-// import WelcomeMessage from './Component/Hangman';
+import "./index.css";
 
-function App() {
-  return (
-    <div >
-      {/* <WelcomeMessage />      */}
-      <Hangman/>
-    </div>
-  );
-}
+
+
+ const App = () => {
+    return (
+       <>
+         <Hangmanfx />
+       </>
+    );
+};
 
 export default App;
