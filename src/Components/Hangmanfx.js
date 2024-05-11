@@ -8,7 +8,7 @@ const HangmanFx = () => {
     const [gameState, setGameState] = useState ('welcome');
     const [playerName, setPlayerName] = useState('');
     const [showPopup, setShowPopup] = useState(false);
-    const [score, setScore] = useState(0);
+    const [score] = useState(0);
     
     const handleNameSubmit = (name) => {
         console.log('Submitted name:', name)
@@ -17,14 +17,14 @@ const HangmanFx = () => {
     };
 
     const handlestartGame = () => {
-        setGameState('game'); // Transition from Welcome to playerName state
         console.log('click start game')
+        setGameState('game'); // Transition from Welcome to playerName state
         setShowPopup(false); // hide the popup
     };
 
     const handleShowPopup = (name) => {
-        setPlayerName(name);
         console.log('show Popup with name', name);
+        setPlayerName(name);
         setShowPopup(true);
     };
 

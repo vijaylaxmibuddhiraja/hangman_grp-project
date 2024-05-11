@@ -121,9 +121,9 @@ body, #root {
 .scoreboard {
   position: fixed;
   top:1rem;
-  right: 1rem;
-  background-color: #d888a1;
+  right: 2rem;
   padding: 1rem;
+  color: #f80;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -133,7 +133,8 @@ body, #root {
 .scoreboard h3 {
   font-size: 1.2rem;
   font-weight: 300;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
+  padding-right: 3px;
 }
 
 .board-content {
