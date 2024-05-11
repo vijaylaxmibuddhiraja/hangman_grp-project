@@ -1,13 +1,13 @@
-import Hangmanfx from "./Components/Hangmanfx";
+import HangmanFxA from "./Component/HangmanFxA";
 
-import "./index.css";
+import "./Component/css/hangman.css";
 
 
 
  const App = () => {
     return (
        <>
-         <Hangmanfx />
+         <HangmanFxA/>
        </>
     );
 };
