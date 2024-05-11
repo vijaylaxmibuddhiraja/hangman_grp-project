@@ -1,68 +1,155 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
-.container {
-  margin: 2rem;
+body, #root {
+  background:linear-gradient(90deg,#cc2b5e,  #753a88 );
+  margin: 0, auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  margin: 0, auto;
 }
 
-p {
-  margin: 2rem;
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-button {
-  padding: 0.7rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background-color: black;
-  color: white;
-  outline: none;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: white;
+.header h1 {
+  font-family:"Montserrat", sans-serif; 
+  font-size: 3rem;
+  font-weight:500;
   color: black;
 }
 
-footer {
-  background-color: gray;
-  padding: 1rem;
-  width: 100vh;
-  height: 5rem;
-  margin: 2rem;
+.transit-head {
+  font-family:"Montserrat", sans-serif; 
+  font-size: 2rem;
+  font-weight:400;
+  color: black; 
+  animation: transition 2s ease-in-out infinite;
 }
 
-.reuse-btn {
-  padding: 0.7rem;
+@keyframes transition {
+  0% {
+    color: #333;
+  }
+  50% {
+    color: #f80;
+  }
+  100% {
+    color: #333;
+  }
+}
+  
+.player-name {
+  text-align: center;
   margin-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background-color: magenta;
-  color: white;
-  outline: none;
-  border-radius: 5px;
 }
 
-.reuse-btn:hover {
-  background-color: white;
-  color: magenta;
+.player-name input {
+  padding: 0.5rem;
+  font-family:"Montserrat", sans-serif; 
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
 }
 
-.name {
-  color: purple;
+.player-name button {
+  padding:0.5rem;
+  font-family:"Montserrat", sans-serif; 
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.player-name button:hover {
+  background-color: #cc2b5e;
+  color: #ccc;
+}
+
+.popup-content {
+  position: relative;
+  margin-left: 37%;
+  width: 400px;
+  height: 200px;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+  font-family:"Montserrat", sans-serif; 
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px; 
+  transform: scale((0.5));
+}
+
+.popup-content h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.popup-content button {
+  background-color: #753a88 ;
+  color: #fff;
+  padding:0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.popup-content button:hover {
+  background-color: #cc2b5e;
+}
+ 
+
+.scoreboard {
+  position: fixed;
+  top:1rem;
+  right: 2rem;
+  padding: 1rem;
+  color: #f80;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family:"Montserrat", sans-serif; 
+}
+
+.scoreboard h3 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 0rem;
+  padding-right: 3px;
+}
+
+.board-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-content h4 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-right: 0.5rem;
+}
+
+.board-content p {
+  font-size: 1rem;
+  font-weight: 300;
 }
