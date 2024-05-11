@@ -16,30 +16,41 @@ const HangmanFxA = () => {
   const [guessed, setGuessed] = useState(new Set())
   const [group, setGroup] = useState('Technology')
   const [answer, setAnswer] = useState(randomWord())
+
+  const guessedWord =()=>{
+    return this.state.answer.split('').map(ltr => (this.state.guessed.has(ltr) ? ltr : "_"))
+  }
+  const generateButtons =()=>{
+    return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
+      <button key={ltr}>{ltr}</button>
+    ))
+  }
+  
   return (
 
     <div className="Hangman">
       <h1 className="Hangman-title">Welcome to the Hangman Game.</h1>
-      <h2> Category: {group}</h2>
+      <h2> Category: </h2>
       <div className="Hangman-flex">
         <div className="Hangman-counter">
-          <img src={images[nWrong]} alt={"Hangman img"} />
+          {/* <img src={images[nWrong]} alt={"Hangman img"} /> */}
           {/* if a problem with images show this message */}
-          <p>Wrong Guesses: {nWrong}</p>
+          <p>Wrong Guesses: </p>
         </div>
         <div>
           <p className="Hangman-word">
-            {gameOver ? answer : this.guessedWord()}</p>
+            {/* {gameOver ? answer : this.guessedWord()} */}
+            </p>
           {/* This shows us the number of wrong guesses */}
 
-          <div className="btns">{gameState}</div>
+          <div className="btns">{generateButtons()}</div>
         </div>
 
         <div className="Hangman-reset">
           <button id="reset" onClick={this.reset}>Restart?</button>
           <form>
             <label htmlFor="group">Guess About: </label>
-            <select name="group" id="group" value={group} onChange={handleChange}>
+            <select name="group" id="group" >
               <option value="Technology" >Technology</option>
               <option value="Jobs">Jobs</option>
               <option value="Brands">Brands</option>

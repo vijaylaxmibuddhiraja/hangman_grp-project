@@ -42,4 +42,4 @@ function randomWord(type = Technology) {
     }
 }
 export { randomWord }
-console.log(randomWord())
+
