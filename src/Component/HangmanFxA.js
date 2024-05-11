@@ -25,17 +25,27 @@ const HangmanFxA = () => {
   let ltr = e.target.value
   const updatedSet = new Set([...guessed, ltr])
   setGuessed(updatedSet)
+  setNWrong(nWrong + (answer.includes(ltr) ? 0 : 1))
  }
   const generateButtons =()=>{
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
       <button key={ltr}
       value={ltr}
-      onClick={handleGuess}>
+      onClick={handleGuess}
+      disabled={guessed.has(ltr)}>
+      
 
         {ltr}</button>
     ))
   }
-  
+  let alt = '${nWrong}/${maxWrong} guesses';
+  let isWinner = this.guessedWord().join("") === answer
+    // in case we pick the right letter we win the game
+    let gameOver = nWrong >= maxWrong
+    // in case we make more guesses that maxWrong=6 we lose the game  
+    let gameState = this.generateButtons()
+    if (isWinner) gameState = 'You Won!'
+    if (gameOver) gameState = 'You Lost!'
   return (
 
     <div className="Hangman">
@@ -43,7 +53,7 @@ const HangmanFxA = () => {
       <h2> Category: </h2>
       <div className="Hangman-flex">
         <div className="Hangman-counter">
-          {/* <img src={images[nWrong]} alt={"Hangman img"} /> */}
+          <img src={images[nWrong]} alt={alt} />
           {/* if a problem with images show this message */}
           <p>Wrong Guesses: </p>
         </div>
