@@ -7,7 +7,7 @@ const GamePopup = ({ playerName, onStartGame}) => {
             <div className="popup-content">
                 <h2>Welcome, {playerName}!</h2>
                 <p>Let the game begin!</p>
-                <button onClick={onStartGame}>Start Game</button>
+                <button className="btn" onClick={onStartGame}>Start Game</button>
             </div>
         </div>
     );
