@@ -11,7 +11,7 @@ import "./Component/css/hangman.css";
        <>
        {/* <Hangman/>
          <FxHangman/> */}
-         <Hangmanfx.js/>
+         <Hangmanfx/>
        </>
     );
 };
