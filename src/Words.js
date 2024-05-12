@@ -7,7 +7,10 @@ let TECHNOLOGY = [
     "Firewall",
     "Windows",
     'Visual Studio',
-    'Git'
+    'Git',
+    'Unix',
+    'Coding',
+
     
 ];
 
@@ -18,8 +21,15 @@ let OCCUPATION = [
     'Doctor',
     'Lawyer',
     'Athlete',
-    
+    'Software Developer',
+    'Engineer',
+    'Nurse',
+    'Photographer',
+    'Surgeon',
+    'Judge',
+    'Accountant',
 
+    
 ]
 
 
@@ -39,8 +49,9 @@ let SPORTS = [
     'Karate',
     'Bowling',
     'Rock climbing',
-    
-    
+    'Darts',
+    'Badminton',
+
 ]
 
 let BRANDS = [
@@ -58,9 +69,11 @@ let BRANDS = [
     'Versace',
     'Tommy Hilifiger',
     
+    
 ]
 
-    function randomWord (type=TECHNOLOGY) {
+    function randomWord (type= TECHNOLOGY) {
+        // we set the default parameters to array Technology
         switch (type) {
             case 'occupation':
                 return OCCUPATION[Math.floor(Math.random() *OCCUPATION.length)];
@@ -74,4 +87,4 @@ let BRANDS = [
                 return BRANDS[Math.floor(Math.random() * BRANDS.length)];
         }
     }
-    export { randoWord };
+    export { randomWord };
