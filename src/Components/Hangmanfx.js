@@ -94,7 +94,18 @@ const HangmanFx = () => {
         setNWrong(0)
         setGuessed(new Set())
     }
+    
+    const handlePlayAgain = () => {
+        console.log('Click Play Again');
+        reset();
+        setShowGameOverPopup(false);
+    };
 
+    const handleQuit = () => {
+        console.log('Click quit');
+        setGameStarted('welcome');
+        setShowGameOverPopup(false);
+    };
 
     let alt = `${nWrong}/${maxWrong} guesses`;
     let isWinner = guessedWord().join("") === answer;
