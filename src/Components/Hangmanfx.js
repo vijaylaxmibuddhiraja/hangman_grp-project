@@ -53,20 +53,20 @@ const HangmanFx = () => {
         setNWrong(0)
         setGuessed(new Set())
         setAnswer(randomWord())
-        setGroup('Technology')
+        /*setGroup('Technology')*/
     }
 
     const guessedWord = () => {
         return answer
             .split("")
-            .map(ltr => (guessed.has(ltr) ? ltr : "_"));
+            .map(ltr => (guessed.has(ltr.toLowerCase()) ? ltr : "_")); // added new //
     }
 
-    const handleGuess = (e) => {
-        let ltr = e.target.value
+    const handleGuess = (event) => {
+        let ltr = event.target.value.toLowerCase
         const updatedSet = new Set([...guessed, ltr])
         setGuessed(updatedSet)
-        setNWrong(nWrong + (answer.includes(ltr) ? 0 : 1))
+        setNWrong(nWrong + (answer.toLowerCase().includes(ltr) ? 0 : 1)) //added //
     }
 
     const generateButtons = () => {
@@ -81,8 +81,8 @@ const HangmanFx = () => {
         ))
     }
 
-    const handleChange = (e) => {
-        const { value } = e.target;
+    const handleChange = (event) => {
+        const { value } = event.target;
         setGroup(value)
         setAnswer(randomWord(value))
         setNWrong(0)
@@ -152,3 +152,9 @@ HangmanFx.defaultProps = {
 export default HangmanFx;
 
 
+//  error occured And to be fixed
+// Position for hangman category display
+//to hide the player name input after entering into the game state
+//Case sensitive issue- as the question started with capital letter the keyboard is not taking small letters
+// To remove reset button and show it as Popup instead
+//Problem in changing category- As the question changes the category changed automatically as well
