@@ -47,7 +47,7 @@ const HangmanFx = () => {
         setShowPopup(true);
     };
 
-
+// also thid function are from Abresha branch
     const reset = () => {
         setNWrong(0)
         setGuessed(new Set())

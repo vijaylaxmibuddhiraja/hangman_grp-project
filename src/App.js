@@ -2,15 +2,15 @@
 // import Hangman from "./Component/Hangman"
 import Hangmanfx from "./Components/Hangmanfx"
 
-import "./Component/css/hangman.css";
+// import "./Component/css/hangman.css";
+import "./index"
 
 
 
  const App = () => {
     return (
        <>
-       {/* <Hangman/>
-         <FxHangman/> */}
+     
          <Hangmanfx/>
        </>
     );
