@@ -1,4 +1,4 @@
-var TECHNOLOGY = [
+let TECHNOLOGY = [
     "JavaScript",
     "Android",
     "Agile",
@@ -30,6 +30,16 @@ let SPORTS = [
     'Tennis',
     'Cricket',
     'Cycling',
+    'Volleyball',
+    'Boxing',
+    'Table tennis',
+    'Ice hockey',
+    'Horse racing',
+    'Sky diving',
+    'Karate',
+    'Bowling',
+    'Rock climbing',
+    
     
 ]
 
@@ -41,6 +51,13 @@ let BRANDS = [
     'Nike',
     'Samsung',
     'Apple',
+    'Amazon',
+    'Chanel',
+    'Vans',
+    'Uniqlo',
+    'Versace',
+    'Tommy Hilifiger',
+    
 ]
 
     function randomWord (type=TECHNOLOGY) {
