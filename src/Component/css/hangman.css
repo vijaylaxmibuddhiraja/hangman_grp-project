@@ -56,14 +56,14 @@ body {
 .btns {
   text-align: center;
   display: inline-block;
-  width: 250px;
+  width: 275px;
   margin-top: 0;
 }
 
 .Hangman button {
   border: none;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
   width: 30px;
   margin: 5px 2px;
@@ -84,7 +84,7 @@ body {
 .Hangman button:disabled {
   background: #bdbdbd;
   color: #eeeeee;
-  box-shadow: 0 6px #9e9e9e;
+  /* box-shadow: 0 6px #9e9e9e; */
 }
 #reset {
   width: auto;

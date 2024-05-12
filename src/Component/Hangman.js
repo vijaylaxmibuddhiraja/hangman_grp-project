@@ -102,10 +102,10 @@ class Hangman extends Component {
         <p className="Hangman-word">
           {gameOver ? answer : this.guessedWord()}</p>
         {/* This shows us the number of wrong guesses */}
-        
+      
         <div className="btns">{gameState}</div>
         </div>
-
+      
         <div className="Hangman-reset">
         <button id="reset" onClick={this.reset}>Restart?</button>
           <form>
@@ -119,13 +119,13 @@ class Hangman extends Component {
 
         </div>
         
-       
+     
         
        
         
 
       </div> </div>
-    );
+    ); 
   }
 }
 export default Hangman;
