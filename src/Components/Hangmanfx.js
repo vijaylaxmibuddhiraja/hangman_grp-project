@@ -10,6 +10,7 @@ import img3 from './images/img3.png'
 import img4 from './images/img4.png'
 import img5 from './images/img5.png'
 import img6 from './images/img6.png'
+import GameOverPopup from './GameOverPopup';
 
 import { randomWord } from "./Word";
 
@@ -27,6 +28,7 @@ const HangmanFx = () => {
     const [guessed, setGuessed] = useState(new Set())
     const [group, setGroup] = useState('Technology')
     const [answer, setAnswer] = useState(randomWord())  // To here 
+    const [showGameOverPopup, setShowGameOverPopup] = useState(false);
 
    /* const handleNameSubmit = (name) => {
         console.log('Submitted name:', name)
@@ -51,9 +53,9 @@ const HangmanFx = () => {
     const reset = () => {
         console.log('reset the game..');
         setNWrong(0)
-        setGuessed(new Set())
-        setAnswer(randomWord())
-        /*setGroup('Technology')*/
+        setGuessed(new Set());
+        setAnswer(randomWord());
+        setGroup('Technology');
     }
 
     const guessedWord = () => {
@@ -98,14 +100,17 @@ const HangmanFx = () => {
     let isWinner = guessedWord().join("") === answer;
     let gameOver = nWrong >= maxWrong
     let gameStates = generateButtons();
-    if (isWinner) {
+   /*if (isWinner) {
         console.log('Congrats, You won!')
         gameStates = "Well Played, You Won!";
     }    
     if (gameOver) {
         console.log('You Lost');
         gameStates = "Oops, You Lost!";
-    }    
+    }  */ 
+    if (isWinner || gameOver) {
+        setShowGameOverPopup(true);
+    }
 
     return (
         <div className="Hangman">
@@ -151,7 +156,14 @@ const HangmanFx = () => {
                         isWinner={isWinner}
                    />
                 ) : null}
-               </>       
+                {showGameOverPopup && (
+                    <GameOverPopup
+                        isWinner={isWinner}
+                        onPlayAgain={handlePlayAgain}
+                        OnQuit={handleQuit}
+                    />
+                )}
+               </>             
             )}
         </div>
     );
