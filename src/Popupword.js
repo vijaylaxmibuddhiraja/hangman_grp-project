@@ -2,7 +2,6 @@
 const Popup = ({status, word, reset}) => {
     if (!status)
         return null
-
     return <div className="popup">
         <p>You {status}!</p>
         <p> The word was {word}</p>
@@ -11,4 +10,4 @@ const Popup = ({status, word, reset}) => {
         </button>
     </div>
 }
-export default Popup 
+export default Popup; 
