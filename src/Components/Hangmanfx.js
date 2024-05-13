@@ -99,6 +99,7 @@ const HangmanFx = () => {
         setGuessed(new Set())
     }
 
+
     let alt = `${nWrong}/${maxWrong} guesses`;
     let isWinner = guessedWord().join("") === answer;
     let gameOver = nWrong >= maxWrong
@@ -132,7 +133,7 @@ const HangmanFx = () => {
                       <div className="Hangman-flex">
                       
                           <div className="Hangman-counter">
-                            <img src={images[nWrong]} alt={alt} />
+                            <img src={images[nWrong]} alt={ `${nWrong}/${maxWrong} guesses`}/>
                             <p>Guessed Wrong: {nWrong}</p>
                           </div>
                           <div>
