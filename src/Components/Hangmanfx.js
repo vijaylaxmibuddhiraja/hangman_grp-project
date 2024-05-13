@@ -3,6 +3,7 @@ import Header from './Header';
 import PlayerName from './PlayerName';
 import GamePopup from './GamePopup';
 import Scoreboard from './Scoreboard';
+import { randomWord } from "./Word";
 import img0 from './images/img0.png'
 import img1 from './images/img1.png'
 import img2 from './images/img2.png'
@@ -10,31 +11,33 @@ import img3 from './images/img3.png'
 import img4 from './images/img4.png'
 import img5 from './images/img5.png'
 import img6 from './images/img6.png'
-import GameOverPopup from './GameOverPopup';
 
-import { randomWord } from "./Word";
+
 
 
 const HangmanFx = () => {
     const [gameState, setGameState] = useState('welcome');
     const [playerName, setPlayerName] = useState('');
     const [showPopup, setShowPopup] = useState(false);
-    const [score] = useState(0);
+    const [score, setScore] = useState(0);
     const [gameStarted, setGameStarted] = useState(false);  // to disappaer the player input field after clicking the start game button
 
     // Abresha's codes from here 
-    const { maxWrong, images } = HangmanFx.defaultProps
+    /*const { maxWrong, images } = HangmanFx.defaultProps*/
     const [nWrong, setNWrong] = useState(0)
     const [guessed, setGuessed] = useState(new Set())
     const [group, setGroup] = useState('Technology')
     const [answer, setAnswer] = useState(randomWord())  // To here 
-    const [showGameOverPopup, setShowGameOverPopup] = useState(false);
+    /*const [showGameOverPopup, setShowGameOverPopup] = useState(false); */
 
-   /* const handleNameSubmit = (name) => {
-        console.log('Submitted name:', name)
+    const maxWrong: 6;
+    const images: [img0, img1, img2, img3, img4, img5, img6];
+   
+    const handleNameSubmit = (name) => {
+        console.log('name given:', name)
         setPlayerName(name);
         setShowPopup(true); // this will show the popup instead of going to the game state directly
-    };*/
+    };
 
     const handlestartGame = () => {
         console.log('start game is clicked')
@@ -56,6 +59,7 @@ const HangmanFx = () => {
         setGuessed(new Set());
         setAnswer(randomWord());
         setGroup('Technology');
+        setScore(0);
     }
 
     const guessedWord = () => {
@@ -65,37 +69,38 @@ const HangmanFx = () => {
             .map(ltr => (guessed.has(ltr.toLowerCase()) ? ltr : "_")); // added new //
     }
 
-    const handleGuess = (event) => {
-        console.log('handle guesses', event.target.value);
-        let ltr = event.target.value.toLowerCase
-        const updatedSet = new Set([...guessed, ltr])
-        setGuessed(updatedSet)
+    const handleGuess = (e) => {
+        console.log('handle guesses', e.target.value);
+        let ltr = e.target.value.toLowerCase();
+        if (/^[a-z]$/.test(ltr) && !guessed.has(ltr)) {
+        const updatedSet = new Set([...guessed, lte]);    
+        setGuessed(updatedSet);
         setNWrong(nWrong + (answer.toLowerCase().includes(ltr) ? 0 : 1)) //added //
     }
 
     const generateButtons = () => {
-        console.log('buttons generated..');
+        console.log('buttons appeared');
         return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
             <button
                 key={ltr}
                 value={ltr}
-                onClick={handleGuess}
+                onClick={() => handleGuess({ target: { value: ltr} })}
                 disabled={guessed.has(ltr)}>
                 {ltr}
             </button>
-        ))
+        ));
     }
 
-    const handleChange = (event) => {
-        console.log('category changes to:', event.target.value);
-        const { value } = event.target;
+    const handleChange = (e) => {
+        console.log('category changes to:', e.target.value);
+        const { value } = e.target;
         setGroup(value)
         setAnswer(randomWord(value))
         setNWrong(0)
         setGuessed(new Set())
     }
     
-    const handlePlayAgain = () => {
+    /*const handlePlayAgain = () => {
         console.log('Click Play Again');
         reset();
         setShowGameOverPopup(false);
@@ -103,25 +108,27 @@ const HangmanFx = () => {
 
     const handleQuit = () => {
         console.log('Click quit');
-        setGameStarted('welcome');
+        setGameState('welcome');
         setShowGameOverPopup(false);
-    };
+    };*/
 
-    let alt = `${nWrong}/${maxWrong} guesses`;
+    let alt = `<span class="math-inline">\{nWrong\}/</span>{maxWrong} guesses`;
     let isWinner = guessedWord().join("") === answer;
     let gameOver = nWrong >= maxWrong
     let gameStates = generateButtons();
-   /*if (isWinner) {
+    if (isWinner) {
         console.log('Congrats, You won!')
         gameStates = "Well Played, You Won!";
+        setScore(score + 1);  // Score increment when game is win
     }    
-    if (gameOver) {
+    else if (gameOver) 
         console.log('You Lost');
         gameStates = "Oops, You Lost!";
-    }  */ 
-    if (isWinner || gameOver) {
+    }  
+
+    /*if (isWinner || gameOver) {
         setShowGameOverPopup(true);
-    }
+    }*/
 
     return (
         <div className="Hangman">
@@ -130,16 +137,29 @@ const HangmanFx = () => {
                   <PlayerName onSubmitName={handleShowPopup} />
             )}
               {showPopup && <GamePopup playerName={playerName} onStartGame={handlestartGame} />}
-              {/*gameState === 'game' && (
-                  /*<PlayerName onSubmitName={handleNameSubmit} /> */}
+              {gameState === 'game' && (
+                  <PlayerName onSubmitName={handleNameSubmit} /> )}
             
-                  {gameState === 'game' && ( 
+                  {gameState === 'game' && gameStarted && ( 
                 <>
                       <Scoreboard playerName={playerName} score={score} />
-                            { /*<button onClick={startGame}>Enter name</button>*/}
+                            {/* <button onClick={startGame}>Enter name</button>*/}
+                        
                       <h1 className="Hangman-title">Hangman {group}</h1>
                       <div className="Hangman-flex">
-                      <div className="Hangman-reset">
+                      
+                          <div className="Hangman-counter">
+                            <img src={images[nWrong]} alt={alt} />
+                            <p>Guessed Wrong: {nWrong}</p>
+                          </div>
+                          <div>
+                            <p className="Hangman-word">
+                                {gameOver ? answer : guessedWord()}
+                            </p>
+                            <div className="btns-word" onKeyDown={handleGuess}>{gameStates}</div>
+                         </div>
+                         <div className="Hangman-reset">
+                            <button id='reset' value="colors" onClick={reset}>Restart?</button>
                           <form>
                             <label htmlFor="group">Guess About: </label>
                             <select name="group" id="group" value={group} onChange={handleChange}>
@@ -149,42 +169,19 @@ const HangmanFx = () => {
                             </select>
                           </form>
                       </div> 
-                    <div className="Hangman-counter">
-                        <img src={images[nWrong]} alt={alt} />
-                        <p>Guessed Wrong: {nWrong}</p>
-                    </div>
-                    <div>
-                        <p className="Hangman-word">
-                            {gameOver ? answer : guessedWord()}
-                        </p>
-                        <div className="btns-word">{gameStates}</div>
-                    </div>
+                  </div>
+                 </>     
+            )}    
+             {(isWinner || gameOver) && (
+                <div className='popup-gameover'>
+                    <p>{isWinner ? 'You Won!' : 'You Lost!'}</p>
+                    <button onClick={() => reset()}>Play Again?</button>
                 </div>
-                {gameOver || isWinner ? (
-                   <GamePopup
-                        playerName={playerName}
-                        onStartGame={reset}
-                        isWinner={isWinner}
-                   />
-                ) : null}
-                {showGameOverPopup && (
-                    <GameOverPopup
-                        isWinner={isWinner}
-                        onPlayAgain={handlePlayAgain}
-                        OnQuit={handleQuit}
-                    />
-                )}
-               </>             
-            )}
-        </div>
-    );
+               
+             )}             
+       </div>
+  );   
 };
-
-HangmanFx.defaultProps = {
-    maxWrong: 6,
-    images: [img0, img1, img2, img3, img4, img5, img6]
-}
-
 
 export default HangmanFx;
 
