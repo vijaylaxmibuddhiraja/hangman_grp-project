@@ -13,8 +13,6 @@ import img5 from './images/img5.png'
 import img6 from './images/img6.png'
 
 
-
-
 const HangmanFx = () => {
     const [gameState, setGameState] = useState('welcome');
     const [playerName, setPlayerName] = useState('');
@@ -23,15 +21,16 @@ const HangmanFx = () => {
     const [gameStarted, setGameStarted] = useState(false);  // to disappaer the player input field after clicking the start game button
 
     // Abresha's codes from here 
-    /*const { maxWrong, images } = HangmanFx.defaultProps*/
+    const [maxWrong, images] = HangmanFx.defaultProps
     const [nWrong, setNWrong] = useState(0)
     const [guessed, setGuessed] = useState(new Set())
     const [group, setGroup] = useState('Technology')
     const [answer, setAnswer] = useState(randomWord())  // To here 
-    /*const [showGameOverPopup, setShowGameOverPopup] = useState(false); */
 
-    const maxWrong: 6;
-    const images: [img0, img1, img2, img3, img4, img5, img6];
+    HangmanFx.defaultProps = {
+         maxWrong: 6,
+         images: [img0, img1, img2, img3, img4, img5, img6]
+    }     
    
     const handleNameSubmit = (name) => {
         console.log('name given:', name)
@@ -73,7 +72,7 @@ const HangmanFx = () => {
         console.log('handle guesses', e.target.value);
         let ltr = e.target.value.toLowerCase();
         if (/^[a-z]$/.test(ltr) && !guessed.has(ltr)) {
-        const updatedSet = new Set([...guessed, lte]);    
+        const updatedSet = new Set([...guessed, ltr]);    
         setGuessed(updatedSet);
         setNWrong(nWrong + (answer.toLowerCase().includes(ltr) ? 0 : 1)) //added //
     }
@@ -91,28 +90,16 @@ const HangmanFx = () => {
         ));
     }
 
-    const handleChange = (e) => {
-        console.log('category changes to:', e.target.value);
-        const { value } = e.target;
+    const handleChange = (event) => {
+        console.log('category changes to:', event.target.value);
+        const { value } = event.target;
         setGroup(value)
         setAnswer(randomWord(value))
         setNWrong(0)
         setGuessed(new Set())
     }
-    
-    /*const handlePlayAgain = () => {
-        console.log('Click Play Again');
-        reset();
-        setShowGameOverPopup(false);
-    };
 
-    const handleQuit = () => {
-        console.log('Click quit');
-        setGameState('welcome');
-        setShowGameOverPopup(false);
-    };*/
-
-    let alt = `<span class="math-inline">\{nWrong\}/</span>{maxWrong} guesses`;
+    let alt = `${nWrong}/${maxWrong} guesses`;
     let isWinner = guessedWord().join("") === answer;
     let gameOver = nWrong >= maxWrong
     let gameStates = generateButtons();
@@ -125,10 +112,6 @@ const HangmanFx = () => {
         console.log('You Lost');
         gameStates = "Oops, You Lost!";
     }  
-
-    /*if (isWinner || gameOver) {
-        setShowGameOverPopup(true);
-    }*/
 
     return (
         <div className="Hangman">
