@@ -143,6 +143,7 @@ const HangmanFx = () => {
                                 <select name="group" id="group" value={group} onChange={handleChange}>
                                     <option value="Technology">Technology</option>
                                     <option value="Jobs">Jobs</option>
+                                    <option value="Sports">Sports</option>
                                     <option value="Brands">Brands</option>
                                 </select>
                             </form>
@@ -152,8 +153,8 @@ const HangmanFx = () => {
             )}
             {isGameOver && (
                 <div className='popup-gameover'>
-                    <p>{maxWrong >= nWrong ? 'You Lost!' : 'You Won'}</p>
-                    <button onClick={playAgain}>Play Again?</button>
+                        <p>{guessedWord() === answer ? 'You Won!' : 'You Lost!'}</p>
+                         <button className='content-btn' onClick={playAgain}>Next Word</button>
                 </div>
             )}
         </div>

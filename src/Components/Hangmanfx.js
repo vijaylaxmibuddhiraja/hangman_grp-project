@@ -20,7 +20,7 @@ const HangmanFx = () => {
     const [score, setScore] = useState(0);
     const [gameStarted, setGameStarted] = useState(false);  // to disappaer the player input field after clicking the start game button
     const [isGameOver, setIsGameOver] =useState(false);
-    const maxWrong = 6;
+    const maxWrong = 6; 
     const images = [img0, img1, img2, img3, img4, img5, img6];
     const [nWrong, setNWrong] = useState(0);
     const [guessed, setGuessed] = useState(new Set());
@@ -146,12 +146,13 @@ const HangmanFx = () => {
                             <div className="btns-word">{generateButtons()}</div>
                          </div>
                          <div className="Hangman-reset">
-                            <button onClick={restartGame}>Restart Game?</button>
+                            <button onClick={restartGame}>Restart</button>
                             <form>
                                <label htmlFor="group">Guess About: </label>
                                <select name="group" id="group" value={group} onChange={handleChange}>
                                   <option value="Technology" >Technology</option>
                                   <option value="Jobs">Jobs</option>
+                                  <option value="Sports">Sports</option>
                                   <option value="Brands">Brands</option>
                                </select>
                             </form>
@@ -161,8 +162,10 @@ const HangmanFx = () => {
             )}    
             {isGameOver && (
                 <div className='popup-gameover'>
-                    <p>{guessedWord() === answer ? 'You Won!' : 'You Lost!'}</p>
-                    <button onClick={playAgain}>Play Again?</button>
+                    <p>{guessedWord() === answer ? 'Congrats! You Won' : 'Oops! You Lost'}</p>
+                    <div className='content-btn'>
+                       <button onClick={playAgain}>Next word</button>
+                    </div>   
                 </div>
                
             )}             
