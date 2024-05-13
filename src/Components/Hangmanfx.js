@@ -161,7 +161,7 @@ const HangmanFx = () => {
             )}    
             {isGameOver && (
                 <div className='popup-gameover'>
-                    <p>{nWrong>= maxWrong ? 'You Won!' : 'You Lost!'}</p>
+                    <p>{guessedWord() === answer ? 'You Won!' : 'You Lost!'}</p>
                     <button onClick={playAgain}>Play Again?</button>
                 </div>
                
@@ -175,8 +175,8 @@ export default HangmanFx;
 
 //  error occured And to be fixed
 
-//to hide the player name input after entering into the game state
-//Case sensitive issue- as the question started with capital letter the keyboard is not taking small letters
-// To remove reset button and show it as Popup instead
-//Problem in changing category- As the question changes the category changed automatically as well
-// need to fix UI display through CSS 
+//to hide the player name input after entering into the game state(fixed)
+//Case sensitive issue- as the question started with capital letter the keyboard is not taking small letters(fixed)
+// To remove reset button and show it as Popup instead(to-do)
+//Problem in changing category- As the question changes the category changed automatically as well(fixed)
+// need to fix UI display through CSS(to do)
