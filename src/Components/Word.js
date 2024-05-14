@@ -18,7 +18,7 @@ let Jobs = [
     "Doctor",
     "Lawyer",
     "Athlete",
-    'Software Developer',
+    'SoftwareDeveloper',
     'Engineer',
     'Nurse',
     'Photographer',
@@ -36,13 +36,12 @@ let Sports = [
     'Cycling',
     'Volleyball',
     'Boxing',
-    'Table tennis',
-    'Ice hockey',
-    'Horse racing',
-    'Sky diving',
+    'Tabletennis',
+    'Icehockey',
+    'Horseracing',
+    'Skydiving',
     'Karate',
     'Bowling',
-    'Rock climbing',
     'Darts',
     'Badminton',
 
@@ -61,7 +60,7 @@ let Brands = [
     'Vans',
     'Uniqlo',
     'Versace',
-    'Tommy Hilifiger'
+    
 ]
 
 function randomWord(type = Technology) {

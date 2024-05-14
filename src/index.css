@@ -235,15 +235,14 @@ body, #root {
   border: none;
   font-family: inherit;
   font-size: 2rem;
-  text-align: center;
+  text-align: cener;
   cursor: pointer;
   width: auto;
   margin: 15px 5px;
-  letter-spacing: 10px;
+  letter-spacing: 2px;
   outline: none;
   background: #5d0877;
   color: #fff;
-
   border-radius: 5px;
   padding-top: 4px;
   padding-bottom: 5px;
