@@ -170,12 +170,20 @@ body, #root {
 }
 
 .Hangman {
+  font-family:"Montserrat", sans-serif; 
+  font-weight:500;
+  color: #5d0877;
+  text-align: center;
   width: 80%;
   /* text-align: center; */
   margin: 0 auto;
   min-height: 80vh;
+  font-size: 18px;
+  font-style: inherit;
+  font-weight: bold;
 }
 .Hangman-flex{
+  
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -184,6 +192,7 @@ body, #root {
 }
 
 .Hangman-flex div{
+  
   text-align: center;
 }
 
@@ -206,6 +215,9 @@ body, #root {
 }
 
 .Hangman-word {
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 5px 15px;
   letter-spacing: 1em;
   margin: 0.4em -1em 0.2em 0;
   font-size: 2rem;
@@ -216,16 +228,18 @@ body, #root {
   display: inline-block;
   width: 275px;
   margin-top: 0;
+  
 }
 
 .Hangman button {
   border: none;
   font-family: inherit;
   font-size: 2rem;
+  text-align: center;
   cursor: pointer;
-  width: 35px;
-  margin: 5px 5px;
-  letter-spacing: 1px;
+  width: auto;
+  margin: 15px 5px;
+  letter-spacing: 10px;
   outline: none;
   background: #5d0877;
   color: #fff;
@@ -233,6 +247,7 @@ body, #root {
   border-radius: 5px;
   padding-top: 4px;
   padding-bottom: 5px;
+  font-size: 20px;
 }
 
 .Hangman button:hover {

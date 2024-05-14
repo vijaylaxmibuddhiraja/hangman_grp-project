@@ -135,7 +135,7 @@ const HangmanFx = () => {
                       <Scoreboard playerName={playerName} score={score} />
                             {/* <button onClick={startGame}>Enter name</button>*/}
                         
-                      <h1 className="Hangman-title">Hangman {group}</h1>
+                      <h2 className="Hangman-title">Hangman {group}</h2>
                       <div className="Hangman-flex">
                           <div className="Hangman-counter">
                             <  img src={images[nWrong]} alt={ `Guessed Wrong: ${nWrong} / ${maxWrong} `}/>
