@@ -9,8 +9,7 @@ function Popup() {
                 { props.children }
             </div>
         </div>
-    ) : "";
-    
+    ) : "";   
 }
 
 const Popup = ({status, word, reset}) => {
