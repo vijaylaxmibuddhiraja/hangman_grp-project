@@ -196,19 +196,21 @@ body, #root {
   text-align: center;
 }
 
-/*.Hangman-reset{
+.Hangman-reset{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   min-height: 50%;
 }
 
-.Hangman-reset select{
-  width: 100%;
+.Hangman-reset .select{
+  width: 40px;
+  margin-left: 50px;
   margin: 1rem 0;
   padding: 0.55em 0.7em;
   font-family:"Montserrat", sans-serif; 
-}*/
+}
+
 .Hangman img{
   max-width: 200px;
   max-height: auto;
@@ -218,7 +220,7 @@ body, #root {
   font-size: 14px;
   border-radius: 4px;
   padding: 5px 15px;
-  letter-spacing: 1em;
+  letter-spacing: 0.5em;
   margin: 0.4em -1em 0.2em 0;
   font-size: 2rem;
 }
@@ -269,6 +271,8 @@ body, #root {
 #reset:hover {
   background: #a505d6;
 }*/
+
+
 .Hangman img{
   max-width: 200px;
   max-height: auto;

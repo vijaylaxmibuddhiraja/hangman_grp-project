@@ -24,8 +24,8 @@ const HangmanFx = () => {
     const images = [img0, img1, img2, img3, img4, img5, img6];
     const [nWrong, setNWrong] = useState(0);
     const [guessed, setGuessed] = useState(new Set());
-    const [group, setGroup] = useState('Technology');
-    const [answer, setAnswer] = useState(randomWord('Technology').toLowerCase()); // Default group initially set 
+    const [category, setCategory] = useState('Prog and OS');
+    const [answer, setAnswer] = useState(randomWord('Prog and OS').toLowerCase()); // Default group initially set 
    
     
     const guessedWord = useCallback(() => {
@@ -70,9 +70,9 @@ const HangmanFx = () => {
         setScore(prevScore => prevScore + (won ? 1 : -1));
         setNWrong(0);
         setGuessed(new Set());
-        setAnswer(randomWord(group).toLowerCase()); // Ensure we're using the current group
+        setAnswer(randomWord(category).toLowerCase()); // Ensure we're using the current group
         setIsGameOver(false);
-    }, [guessedWord, group, answer]);
+    }, [guessedWord, category, answer]);
 
     const handleShowPopup = useCallback((name) => {
         setPlayerName(name);
@@ -92,16 +92,16 @@ const HangmanFx = () => {
         setScore(0);
         setNWrong(0);
         setGuessed(new Set());
-        setAnswer(randomWord(group).toLowerCase()); // Ensure we're using the current group
+        setAnswer(randomWord(category).toLowerCase()); // Ensure we're using the current group
         setShowPopup(false);
         setGameStarted(false);
         setGameState('welcome');
         setIsGameOver(false);
-    }, [group]);
+    }, [category]);
     
     const handleChange = (e) => {
         const { value } = e.target;
-        setGroup(value);
+        setCategory(value);
         setAnswer(randomWord(value).toLowerCase());
         setNWrong(0);
         setGuessed(new Set());
@@ -135,7 +135,7 @@ const HangmanFx = () => {
                       <Scoreboard playerName={playerName} score={score} />
                             {/* <button onClick={startGame}>Enter name</button>*/}
                         
-                      <h2 className="Hangman-title">Hangman {group}</h2>
+                      <h2 className="Hangman-title">Hangman: {category}</h2>
                       <div className="Hangman-flex">
                           <div className="Hangman-counter">
                             <  img src={images[nWrong]} alt={ `Guessed Wrong: ${nWrong} / ${maxWrong} `}/>
@@ -147,9 +147,9 @@ const HangmanFx = () => {
                          </div>
                          <div className="Hangman-reset">
                             <button onClick={restartGame}>Restart</button>
-                            <form>
+                            <form className='guess-field'>
                                <label htmlFor="group">Guess About: </label>
-                               <select name="group" id="group" value={group} onChange={handleChange}>
+                               <select name="category" id="category" value={category} onChange={handleChange}>
                                   <option value="Prog Lang and OS" >Prog Lang and OS</option>
                                   <option value="Jobs">Jobs</option>
                                   <option value="Sports">Sports</option>
