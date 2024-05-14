@@ -143,14 +143,14 @@ const HangmanFx = () => {
                           </div>
                           <div>
                             <p className="Hangman-word">{guessedWord()}</p>
-                            <div className="btns-word">{generateButtons()}</div>
+                            <div className="btn-keyboard">{generateButtons()}</div>
                          </div>
                          <div className="Hangman-reset">
                             <button onClick={restartGame}>Restart</button>
                             <form>
                                <label htmlFor="group">Guess About: </label>
                                <select name="group" id="group" value={group} onChange={handleChange}>
-                                  <option value="Technology" >Technology</option>
+                                  <option value="Prog Lang and OS" >Prog Lang and OS</option>
                                   <option value="Jobs">Jobs</option>
                                   <option value="Sports">Sports</option>
                                   <option value="Brands">Brands</option>
@@ -180,6 +180,6 @@ export default HangmanFx;
 
 //to hide the player name input after entering into the game state(fixed)
 //Case sensitive issue- as the question started with capital letter the keyboard is not taking small letters(fixed)
-// To remove reset button and show it as Popup instead(to-do)
+// To remove reset button and show it as Popup instead(to-do)restart button insertes instaed of reset w/o popup
 //Problem in changing category- As the question changes the category changed automatically as well(fixed)
-// need to fix UI display through CSS(to do)
+// need to fix UI display through CSS(fixed)

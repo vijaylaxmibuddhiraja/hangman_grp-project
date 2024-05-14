@@ -109,7 +109,7 @@ body, #root {
   margin-bottom: 1.5rem;
 }
 
-.popup-content button {
+.popup-content .button-start {
   margin: 10px;
   background-color: #753a88 ;
   color: #fff;
@@ -223,7 +223,7 @@ body, #root {
   font-size: 2rem;
 }
 
-.btns-word {
+.btn-keyboard {
   text-align: center;
   display: inline-block;
   width: 275px;
@@ -258,7 +258,7 @@ body, #root {
   color: #eeeeee;
   /* box-shadow: 0 6px #9e9e9e; */
 }
-#reset {
+/*#reset {
   width: auto;
   display: block;
   margin: 2rem auto;
@@ -268,7 +268,7 @@ body, #root {
 }
 #reset:hover {
   background: #a505d6;
-}
+}*/
 .Hangman img{
   max-width: 200px;
   max-height: auto;
