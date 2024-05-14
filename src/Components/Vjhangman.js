@@ -162,9 +162,9 @@ const HangmanFx = () => {
             )}    
             {isGameOver && (
                 <div className='popup-gameover'>
-                    <p>{guessedWord() === answer ? 'Congrats! You Won.' : 'Oops! You Lost'}</p>
+                    <p>{guessedWord() === answer ? `Congrats! You Won. Score: ${score}` : `Oops! You Lost. Score: ${score}`}</p>
                     <div className='content-btn'>
-                       <button onClick={playAgain}>Next word</button>
+                       <button onClick={playAgain}>{guessedWord() === answer ? 'Next Word' : 'Try Again'}</button>
                     </div>   
                 </div>
                

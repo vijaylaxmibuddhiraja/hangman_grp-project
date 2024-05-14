@@ -116,7 +116,7 @@ body, #root {
   padding:0.5rem 1rem;
   font-size: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index:999;
   cursor: pointer;
@@ -282,8 +282,8 @@ body, #root {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 35%;
-  height: 30%;
+  width: 40%;
+  height: 35%;
   transform: translate(-50%, -50%);
   background-color:aliceblue ;
   padding: 20px;
@@ -299,9 +299,10 @@ body, #root {
 
 .popup-gameover p {
   font-family:"Montserrat", sans-serif; 
-  font-size: 20px;
+  font-size: 18px;
   font-weight: lighter;
   margin-bottom: 20px;
+  line-height: 1.4;
 }
 
 .popup-gameover .content-btn {
