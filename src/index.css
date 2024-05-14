@@ -116,7 +116,7 @@ body, #root {
   padding:0.5rem 1rem;
   font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index:999;
   cursor: pointer;
@@ -378,6 +378,13 @@ body, #root {
   .Hangman-title{
     text-align: center;
   }
+  .scoreboard{
+    position: relative;
+    top:auto;
+    bottom: 1rem;
+    z-index: 9;
+  }
+  
   .Hangman-flex{
     justify-content: center;
   }
@@ -390,4 +397,5 @@ body, #root {
   #reset {
     margin: 2rem auto 1rem;
   }
+
 } 

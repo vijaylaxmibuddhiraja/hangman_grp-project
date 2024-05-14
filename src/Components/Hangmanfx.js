@@ -147,7 +147,7 @@ const HangmanFx = () => {
                          </div>
                          <div className="Hangman-reset">
                             <button onClick={restartGame}>Restart</button>
-                            <form className='guess-field'>
+                            <form>
                                <label htmlFor="group">Guess About: </label>
                                <select name="category" id="category" value={category} onChange={handleChange}>
                                   <option value="Prog Lang and OS" >Prog Lang and OS</option>
@@ -174,6 +174,26 @@ const HangmanFx = () => {
 };
 
 export default HangmanFx;
+
+// DESCRIPTION
+// 1. Welcome- welcome screen with enter player name and start button
+// 2. "HandleShowPopup" function will appear after entering the name and clicking the start game button
+// 3. The player name input field disappear and scoreboard with the name and score appeared.
+// 4. At the same time Start game will also transition the game state to game.
+// 5. "handleGuess" function triggered by clicking the letters on keyboard.
+//    It will check if the game is progressing by guessing the right letters.
+//    The no. of wrong guesses also increases if the guessed letter is wrong.
+// 6. After every guess, the game checks-
+//    (win-when the guess letters are correct; Lose-when reached max. no of guess)
+//    Either conditions met- GameOver starts.
+// 7. Popup displayed for win or lost with Next word button that triggers playAgain function.
+// 8. "Next Word" button resets the game with new random word with the chosen category. 
+//     Scoreboard also updated according to win or lose game.
+// 9. "restartGame" function also triggered by clicking "Restart button".    
+// 10. Initial game will start by showing the game state.
+// 11. The player can change the select category in the middle of game as well.
+       // guessed letters and wrong guesses will also reset.
+
 
 
 //  error occured And to be fixed
