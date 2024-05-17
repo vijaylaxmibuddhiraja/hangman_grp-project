@@ -18,7 +18,7 @@ const PlayerName = ({ onSubmitName }) => {
                     onChange={(event) => setName(event.target.value)}
                     placeholder="Enter your name"
                 />    
-                <button type="submit">Start Game</button>       
+                <button className="submit-btn" type="submit">Start Game</button>       
             </form>
         </div>
     );

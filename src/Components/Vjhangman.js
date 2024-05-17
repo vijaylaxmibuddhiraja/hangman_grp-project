@@ -26,7 +26,6 @@ const HangmanFx = () => {
     const [guessed, setGuessed] = useState(new Set());
     const [category, setCategory] = useState('Prog and OS');
     const [answer, setAnswer] = useState(randomWord('Prog and OS').toLowerCase()); // Default group initially set 
-   
     
     const guessedWord = useCallback(() => {
         return answer.split("").map(ltr => guessed.has(ltr.toLowerCase()) ? ltr : "_").join("");
@@ -59,26 +58,33 @@ const HangmanFx = () => {
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [handleGuess]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (nWrong >= maxWrong || guessedWord() === answer) {
             setIsGameOver(true);
         }
-    }, [nWrong, guessedWord, answer]);
+    }, [nWrong, guessedWord, answer]);*/
 
-    const playAgain = useCallback(() => {
-        const won = guessedWord() === answer;
-        setScore(prevScore => prevScore + (won ? 1 : -1));
+  useEffect( () => {
+       if (nWrong >= maxWrong || guessedWord() === answer) {
+          if (!isGameOver) {
+            const won = guessedWord() === answer;
+            setScore(prevScore => prevScore + (won ? 1 : -1));  // update score before resetting game state
+           setIsGameOver(true);
+          }
+       }
+  }, [nWrong, guessedWord, answer, isGameOver]);
+
+    const playAgain = useCallback(() => {  
         setNWrong(0);
         setGuessed(new Set());
         setAnswer(randomWord(category).toLowerCase()); // Ensure we're using the current group
         setIsGameOver(false);
-    }, [guessedWord, category, answer]);
+    }, [category]);
 
     const handleShowPopup = useCallback((name) => {
         setPlayerName(name);
         setShowPopup(true);
     }, []);
-
 
     const handlestartGame = useCallback(() => {
         console.log('start game is clicked')
@@ -162,13 +168,14 @@ const HangmanFx = () => {
             )}    
             {isGameOver && (
                 <div className='popup-gameover'>
-                    <p>{guessedWord() === answer ? `Congrats! You Won. Score: ${score}` : `Oops! You Lost. Score: ${score}`}</p>
-                    <div className='content-btn'>
-                       <button onClick={playAgain}>{guessedWord() === answer ? 'Next Word' : 'Try Again'}</button>
-                    </div>   
-                </div>
-               
-            )}             
+                 <p>{guessedWord() === answer ? 'Congrats! You Won' : 'Oops! You Lost'}</p>
+                 <p>Score : {score}</p>
+                 <div className='content-btn'>
+                   <button onClick={playAgain}>{guessedWord() === answer ? 'Next Word' : 'Try Again'}</button>
+                </div>   
+               </div> 
+            )}
+                     
        </div>
   );   
 };

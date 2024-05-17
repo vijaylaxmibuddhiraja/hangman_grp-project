@@ -149,7 +149,7 @@ const HangmanFx = () => {
                             <button onClick={restartGame}>Restart</button>
                             <form>
                                <label htmlFor="group">Guess About: </label>
-                               <select name="category" id="category" value={category} onChange={handleChange}>
+                               <select className="category" id="category" value={category} onChange={handleChange}>
                                   <option value="Prog Lang and OS" >Prog Lang and OS</option>
                                   <option value="Jobs">Jobs</option>
                                   <option value="Sports">Sports</option>
@@ -162,12 +162,13 @@ const HangmanFx = () => {
             )}    
             {isGameOver && (
                 <div className='popup-gameover'>
-                    <p>{guessedWord() === answer ? 'Congrats! You Won.' : 'Oops! You Lost'}</p>
+                    <p>{guessedWord() === answer ? 'Congrats! You Won' : 'Oops! You Lost'}</p>
+                       {guessedWord() === answer && <p>Score : {score}</p>}
                     <div className='content-btn'>
-                       <button onClick={playAgain}>Next word</button>
+                       <button onClick={playAgain}>{guessedWord() === answer ? 'Next Word' : 'Try Again'}</button>
                     </div>   
                 </div>
-               
+                
             )}             
        </div>
   );   

@@ -66,19 +66,19 @@ body, #root {
   margin-right: 0.5rem;
 }
 
-.player-name button {
+.player-name .submit-btn {
   display:inline-block;
-  padding:0.6rem;
+  padding:0.5rem;
   font-family:"Montserrat", sans-serif; 
   font-size: 1rem;
   align-items: center;
   text-align: center;
-  border: none;
-  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.player-name button:hover {
+.player-name .submit-btn:hover {
   background-color: #cc2b5e;
   color: #ccc;
 }
@@ -117,14 +117,15 @@ body, #root {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /*border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
   z-index:999;
   cursor: pointer;
   box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
 
 
@@ -260,6 +261,7 @@ body, #root {
   color: #eeeeee;
   /* box-shadow: 0 6px #9e9e9e; */
 }
+
 /*#reset {
   width: auto;
   display: block;
@@ -282,7 +284,7 @@ body, #root {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 40%;
+  width: 30%;
   height: 35%;
   transform: translate(-50%, -50%);
   background-color:aliceblue ;
@@ -302,7 +304,7 @@ body, #root {
   font-size: 18px;
   font-weight: lighter;
   margin-bottom: 20px;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 .popup-gameover .content-btn {
@@ -313,7 +315,7 @@ body, #root {
 }
 
 .popup-gameover button {
-  padding: 15px 65px;
+  padding: 15px 30px;
   font-family:"Montserrat", sans-serif;
   font-size: 16px;
   background-color: #7b1fa2;
@@ -373,7 +375,6 @@ body, #root {
 .btn-popups button:hover {
   background-color: #45a049; /* Change the background color on hover 
 }*/
-
 
 @media (max-width: 570px) {
   .Hangman-title{
