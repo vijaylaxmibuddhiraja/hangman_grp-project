@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const quit = () => {
+const Quit = () => {
     const [showQuitPrompt, setShowQuitPrompt] = useState(false);
     const [quitConfirmed, setQuitConfirmed] = useState(false);
 
@@ -37,4 +37,4 @@ const quit = () => {
     );
 }
  
-export default quit;
+export default Quit;
