@@ -93,16 +93,6 @@ const HangmanFx = () => {
         setShowQuitGame(true);
     }, []);
 
-    const handleQuitConfirm = useCallback(()=> {
-        console.log('exit the game..');
-        restartGame();
-    }, [restartGame]);
-
-    const handleQuitCancel = useCallback(() => {
-        setShowQuitGame(false);
-    }, []);
-
-
     const restartGame = useCallback(() => {
         setScore(0);
         setNWrong(0);
@@ -113,6 +103,15 @@ const HangmanFx = () => {
         setGameState('welcome');
         setIsGameOver(false);
     }, [category]);
+
+    const handleQuitConfirm = useCallback(()=> {
+        console.log('exit the game..');
+        restartGame();
+    }, [restartGame]);
+
+    const handleQuitCancel = useCallback(() => {
+        setShowQuitGame(false);
+    }, []);
     
     const handleChange = (e) => {
         const { value } = e.target;
@@ -172,7 +171,7 @@ const HangmanFx = () => {
                                </select>
                             </form>
                          </div> 
-                         <button className='quit-button' onClick={handleQuitGame}>Quit</button>
+                        <button className='quit-button' onClick={handleQuitGame}>Quit</button>
                       </div>
                 </>     
             )}    

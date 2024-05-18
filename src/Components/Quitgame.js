@@ -22,7 +22,7 @@ const Quit = () => {
 
     return (
         <div className="quit">
-            <button onClick={handleQuitClick}>Quit</button>
+            {/*<button onClick={handleQuitClick}>Quit</button>*/}
 
             {showQuitPrompt && (
                <div className="modal">
