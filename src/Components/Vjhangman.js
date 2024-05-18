@@ -4,6 +4,7 @@ import PlayerName from './PlayerName';
 import GamePopup from './GamePopup';
 import Scoreboard from './Scoreboard';
 import { randomWord } from "./Word";
+import Quitgame from "./Quitgame";
 import img0 from './images/img0.png'
 import img1 from './images/img1.png'
 import img2 from './images/img2.png'
@@ -26,7 +27,9 @@ const HangmanFx = () => {
     const [guessed, setGuessed] = useState(new Set());
     const [category, setCategory] = useState('Prog and OS');
     const [answer, setAnswer] = useState(randomWord('Prog and OS').toLowerCase()); // Default group initially set 
-    
+    const [showQuitGame, setShowQuitGame] = useState(false);
+
+
     const guessedWord = useCallback(() => {
         return answer.split("").map(ltr => guessed.has(ltr.toLowerCase()) ? ltr : "_").join("");
     }, [answer, guessed]);
@@ -104,7 +107,21 @@ const HangmanFx = () => {
         setGameState('welcome');
         setIsGameOver(false);
     }, [category]);
+
     
+   const handleQuitGame = useCallback(() => {
+        setShowQuitGame(true);
+    }, []);
+
+    const handleQuitConfirm = useCallback(()=> {
+        console.log('exit the game..');
+       restartGame(); // reset the game state by calling restart game function
+    }, [restartGame]);
+
+    const handleQuitCancel = useCallback(() => {
+        setShowQuitGame(false);
+    }, []);
+
     const handleChange = (e) => {
         const { value } = e.target;
         setCategory(value);
@@ -128,6 +145,8 @@ const HangmanFx = () => {
             </button>
         ));
     };
+
+
 
     return (
         <div className="Hangman">
@@ -163,9 +182,12 @@ const HangmanFx = () => {
                                </select>
                             </form>
                          </div> 
+                         <button className='quit-button' onClick={handleQuitGame}>Quit</button>
                       </div>
+                      
                 </>     
             )}    
+           
             {isGameOver && (
                 <div className='popup-gameover'>
                  <p>{guessedWord() === answer ? 'Congrats! You Won' : 'Oops! You Lost'}</p>
@@ -175,8 +197,14 @@ const HangmanFx = () => {
                 </div>   
                </div> 
             )}
-                     
-       </div>
+
+            {showQuitGame && (
+                <Quitgame 
+                   onConfirm={handleQuitConfirm}
+                   onCancel={handleQuitCancel}
+                />   
+            )}
+      </div>
   );   
 };
 
